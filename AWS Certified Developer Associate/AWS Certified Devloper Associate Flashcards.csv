@@ -1,0 +1,70 @@
+What is the scope of AWS Identity and Access Management (IAM)?,"IAM is a global/universal service, not regional, and is used to manage access to the AWS Console."
+What type of access key is assigned to new IAM users for programmatic access?,New users are assigned an Access Key ID and a Secret Access Key.
+A collection of IAM users under one set of permissions is known as a(n) _____.,Group
+"In IAM, what is a 'Policy'?","A document that defines one or more permissions and can be attached to a user, group, or role."
+"Which EC2 pricing option involves purchasing unused capacity at a significant discount, with the risk of interruption?",Spot instances.
+Which EC2 pricing option is the most expensive and provides a physical server for compliance or regulatory needs?,Dedicated hosts.
+Which EBS volume type is designed as a Storage Area Network (SAN) in the cloud with the highest performance and sub-millisecond latency?,Provisioned IOPS SSD (io2 Block Express).
+Which two EBS volume types cannot be used as a boot volume?,Throughput Optimized HDD (st1) and Cold HDD (sc1).
+What is the primary purpose of an Elastic Load Balancer (ELB)?,To distribute network traffic across a group of servers.
+At which layer of the OSI model does an Application Load Balancer (ALB) operate?,"Layer 7 (Application Layer), handling HTTP and HTTPS traffic."
+What does a 504 Gateway Timeout error from an Elastic Load Balancer typically indicate?,"The target, such as an EC2 instance, failed to respond to the load balancer's request."
+What is the purpose of the X-Forwarded-For header when using a load balancer?,It identifies the originating IPv4 address of a client connecting through the load balancer.
+"In Route 53, a(n) _____ record is used to route traffic to an AWS resource like a load balancer without using an IP address.",Alias
+What is the function of an RDS Multi-AZ deployment?,It creates an exact copy of a database in another availability zone for disaster recovery and automatic failover.
+What is the primary use case for an RDS Read Replica?,"To offload read traffic from the primary database, improving performance for read-heavy workloads."
+How can you encrypt an unencrypted RDS database?,"Take a snapshot of the unencrypted database, create an encrypted copy of the snapshot, and then restore the database from the encrypted snapshot."
+What service acts as a connection cache to pool and share database connections for improved scalability and efficiency?,RDS Proxy.
+Which ElastiCache engine is a more sophisticated solution that supports sorting and ranking data for complex data types?,Redis.
+What is the key difference between ElastiCache for Redis and MemoryDB for Redis?,"MemoryDB provides ultra-fast performance and can be used as a primary, durable, multi-AZ database, whereas ElastiCache is primarily a cache."
+"For storing sensitive credentials like database passwords that require automatic rotation, which service should be used?",AWS Secrets Manager.
+"For storing less-sensitive configuration data like environment variables that are managed manually, which service is appropriate?",AWS Systems Manager Parameter Store.
+"What AWS service automates the process of creating, maintaining, and distributing server images (AMIs)?",EC2 Image Builder.
+How do you use an Amazon Machine Image (AMI) in a different region from where it was created?,You must create a copy of the AMI in the target region.
+What is the maximum size of a single object that can be stored in an Amazon S3 bucket?,5 Terabytes (TB).
+What must be true about the naming convention for S3 buckets?,S3 bucket names must be globally unique.
+The S3 _____ storage class automatically moves data between frequent and infrequent access tiers to optimize costs for unknown access patterns.,Intelligent-Tiering
+"Which S3 storage class is stored in only one Availability Zone and is suitable for non-critical, infrequently accessed data?",S3 One Zone-Infrequent Access (S3 One Zone-IA).
+Which S3 feature allows you to define rules to automatically transition objects to cheaper storage tiers or delete them after a set time?,Lifecycle Management.
+What are the three types of server-side encryption (SSE) available for S3?,"SSE-S3 (S3-managed keys), SSE-KMS (KMS-managed keys), and SSE-C (customer-provided keys)."
+How can you enforce that all objects uploaded to an S3 bucket are encrypted?,By using a bucket policy that denies requests without the `x-amz-server-side-encryption` header.
+What is an Origin Access Identity (OAI) used for in CloudFront?,"It's a special CloudFront user that restricts direct access to an S3 bucket, ensuring content is only served through CloudFront."
+What is the purpose of Amazon Athena?,"It's a serverless, interactive query service that allows you to analyze data in S3 using standard SQL."
+What does a 429 status code from a Lambda function indicate?,It indicates that the concurrent execution limit for the region has been reached (throttling).
+"What is the name for the latest, mutable version of a Lambda function?",$LATEST.
+Which AWS service provides a visual interface to coordinate components of distributed applications and serverless functions into workflows?,AWS Step Functions.
+What is the difference between Standard and Express workflows in AWS Step Functions?,"Standard workflows are long-running (up to 1 year) and durable, while Express workflows are for high-volume, short-duration event processing workloads."
+"Where can a Lambda function store temporary, non-persistent files during its execution?","In the `/tmp` directory, which is a temporary file system in the execution environment."
+What is the purpose of Lambda Layers?,"To manage and share common dependencies, libraries, or custom runtimes across multiple Lambda functions."
+"In Lambda, what are the two main features used for handling invocation errors for asynchronous functions?",Dead-Letter Queues (DLQs) and Lambda Destinations.
+What is the purpose of API Gateway Caching?,"To cache endpoint responses, reducing the number of calls made to the backend and improving latency for frequent requests."
+What AWS service helps developers analyze and debug distributed applications by providing a visual map of the application's components and tracking requests?,AWS X-Ray.
+"To use AWS X-Ray with an application, you must install the X-Ray _____ on the host and use the X-Ray _____ in your application code.",agent (daemon); SDK
+What is the difference between an 'Eventually Consistent Read' and a 'Strongly Consistent Read' in DynamoDB?,"A Strongly Consistent Read returns the most up-to-date data, while an Eventually Consistent Read might return slightly stale data but has higher throughput."
+"In DynamoDB, a _____ is used to query data on attributes that are not part of the primary key.",Secondary Index (Global or Local)
+What is the difference between a Query and a Scan operation in DynamoDB?,"A Query operation efficiently finds items based on the primary key, while a Scan operation examines every item in the table."
+What is DynamoDB Accelerator (DAX)?,"A fully managed, in-memory cache for DynamoDB that delivers up to a 10x read performance improvement."
+The practice of encrypting a data key with another key (like a CMK) is known as _____.,Envelope Encryption
+What is the main difference between an AWS-Managed CMK and a Customer-Managed CMK in KMS?,"You have full control over a Customer-Managed CMK, including its key policy and rotation schedule, whereas AWS manages these aspects for an AWS-Managed CMK."
+Which AWS service is a message queue that enables decoupling of application components and uses a pull-based model?,Amazon Simple Queue Service (SQS).
+What is the 'Visibility Timeout' in SQS?,The period of time during which a message is hidden from other consumers after it has been picked up by one consumer for processing.
+"Which AWS service operates on a publish-subscribe (pub-sub) model, pushing notifications to endpoints like SQS, Lambda, or email?",Amazon Simple Notification Service (SNS).
+"Which Elastic Beanstalk deployment strategy deploys a new version in batches, reducing capacity during the update?",Rolling deployment.
+Which Elastic Beanstalk deployment strategy enables canary testing by forwarding a percentage of traffic to a new application version?,Traffic splitting.
+What is the name of the configuration file used for deployments in Elastic Beanstalk for EC2/on-premises systems?,AppSpec file (appspec.yml).
+The AppSpec file must be placed in the _____ directory of your application source code for CodeDeploy to find it.,root
+What AWS service provides a fully managed source control service based on Git?,AWS CodeCommit.
+"Which AWS service compiles source code, runs tests, and produces software packages that are ready to deploy?",AWS CodeBuild.
+What is the function of AWS CodePipeline?,"It's a continuous delivery service that automates the build, test, and deploy phases of your release process every time there is a code change."
+What AWS service allows you to model and provision your entire cloud infrastructure as code using YAML or JSON?,AWS CloudFormation.
+A set of AWS resources created by a CloudFormation template is known as a _____.,stack
+What is the AWS Serverless Application Model (SAM)?,An open-source framework and extension to CloudFormation for building and deploying serverless applications.
+"The AWS _____ allows you to define cloud infrastructure using familiar programming languages like Python, Java, or TypeScript.",Cloud Development Kit (CDK)
+What is the purpose of Amazon Cognito User Pools?,To act as user directories that provide sign-up and sign-in functionality for web and mobile applications.
+What is the purpose of Amazon Cognito Identity Pools?,"To provide temporary AWS credentials to users, enabling them to access AWS services."
+The Security Token Service (STS) API call _____ returns temporary security credentials for users authenticated by a web ID provider like Google or Facebook.,AssumeRoleWithWebIdentity
+What is the key difference between CloudWatch and CloudTrail?,"CloudWatch monitors resource performance and health (metrics, logs, alarms), while CloudTrail records user activity and API calls for auditing purposes."
+"By default, how often does an EC2 instance send metric data to CloudWatch?",In 5-minute intervals.
+What is the term for the caching strategy where data is loaded into the cache only when it is first requested by the application?,Lazy loading.
+What is the purpose of using stage variables in API Gateway?,"To define configuration settings for a deployment stage, such as backend endpoints, allowing a single API definition to be used across multiple environments (dev, prod)."
+How can a developer resolve missing dependencies in a Lambda function without including them in the deployment package?,By creating a Lambda Layer that contains the dependencies and attaching it to the function.
