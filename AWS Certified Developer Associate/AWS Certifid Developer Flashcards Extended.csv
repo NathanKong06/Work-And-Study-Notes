@@ -1,0 +1,98 @@
+What is the primary function of AWS Identity and Access Management (IAM)?,To manage users and their level of access to the AWS Console in a centralized and granular way.
+Are IAM policies applied globally or on a per-region basis?,"IAM is a global service, meaning users, groups, roles, and policies are not specific to any region."
+What tool can be used to test and validate IAM policies before applying them in production?,The IAM Policy Simulator.
+"When a new IAM user is created, what credentials are they assigned for programmatic access?",An access key ID and a secret access key.
+"In IAM, a collection of users under one set of permissions is known as a _____.",Group
+"What is the term for a document that defines one or more permissions and can be attached to a user, group, or role in IAM?",A Policy.
+"Which EC2 pricing option involves purchasing unused capacity at a significant discount, with the risk of interruption if AWS needs the capacity back?",Spot Instances.
+Which EC2 Reserved Instance type offers a smaller discount but allows you to change to a different instance type of equal or greater value?,Convertible Reserved Instance.
+"For compliance or regulatory restrictions that require a physical server, which is the most expensive EC2 pricing option?",Dedicated Host.
+What does IOPS measure in the context of EBS volumes?,"The number of read and write operations per second, important for quick transactions and low latency."
+"Which EBS volume type is designed for big data, data warehouses, and ETL workloads, and cannot be used as a boot volume?",Throughput Optimized HDD (st1).
+"What is the highest performance EBS volume type, described as a 'Storage Area Network (SAN) in the cloud' with sub-millisecond latency?",Provisioned IOPS SSD (io2 Block Express).
+"A point-in-time copy of an EBS volume, often used for backups, is called an _____.",EBS Snapshot
+Which Elastic Load Balancer operates at Layer 7 and is used for HTTP and HTTPS traffic?,Application Load Balancer (ALB).
+"Which Elastic Load Balancer operates at Layer 4, is suited for high-performance TCP traffic, and is not typically used for websites?",Network Load Balancer (NLB).
+What is the purpose of the X-Forwarded-For header when using a load balancer?,To identify the originating IPv4 address of a client connecting through the load balancer.
+A 504 Gateway Timeout error from a load balancer indicates a problem with what component?,The target application or server failed to respond.
+What is the function of an Alias Record in Route 53?,"It allows you to route traffic to an AWS resource (like a Load Balancer or S3 bucket) without using an IP address, similar to an A Record but for AWS services."
+"In the AWS CLI, what is the purpose of the `--page-size` option?","To control the number of items included in the output from each API call, which can help prevent timeout errors."
+Is RDS generally better suited for Online Transaction Processing (OLTP) or Online Analytics Processing (OLAP) workloads?,"RDS is generally used for OLTP workloads, which involve processing real-time transactions."
+What is the primary purpose of configuring an RDS database with Multi-AZ?,Disaster recovery; AWS automatically fails over to an exact copy of the database in another availability zone.
+How does an RDS Read Replica improve database performance?,"It provides a read-only copy of the database, offloading read-heavy workloads from the primary database instance."
+"How can you encrypt an existing, unencrypted RDS database?","You cannot encrypt it directly; you must take a snapshot, encrypt the snapshot, and then restore the database from the encrypted snapshot."
+"What AWS service acts as a connection cache, pooling and sharing database connections to improve scalability and reduce failover times for RDS?",RDS Proxy.
+For what type of workload is ElastiCache most beneficial?,Read-heavy database workloads where data is not prone to frequent changes.
+Compare ElastiCache for Redis and MemoryDB for Redis.,"ElastiCache for Redis is an in-memory cache, while MemoryDB for Redis is an ultra-fast, in-memory database that can be used as a primary DB, removing the need for a separate cache."
+Which service is best for storing less-sensitive configuration data and secrets that do not require automatic rotation?,AWS Systems Manager Parameter Store.
+"Which service is designed for storing highly sensitive credentials, like database passwords, and supports automatic rotation?",AWS Secrets Manager.
+What is the purpose of an Image Recipe in EC2 Image Builder?,"It defines the source image and build components (software) for an image, allowing it to be shared, version controlled, and re-used."
+"If you need to use an AMI in a different region from where it was created, what must you do?",You must create a copy of the AMI in the target region.
+"In S3, data is managed as _____, which can be any type of file up to 5TB in size.",objects
+What is the naming requirement for S3 buckets?,S3 bucket names must be globally unique.
+"Which S3 storage class is designed for data that is accessed less frequently but requires rapid access when needed, and has a retrieval fee?",S3 Standard-Infrequent Access (S3-IA).
+Which S3 storage class automatically moves data between a frequent and an infrequent access tier to optimize costs for unknown access patterns?,S3 Intelligent-Tiering.
+What is the key difference between S3 Standard-IA and S3 One Zone-IA?,"S3 One Zone-IA stores data in a single Availability Zone, making it cheaper but less resilient than S3 Standard-IA."
+"By default, are S3 buckets public or private?","By default, all S3 buckets are private, and only the owner has access."
+"To enforce that all objects uploaded to an S3 bucket are encrypted, you can create a bucket policy that denies requests missing the _____ header.",x-amz-server-side-encryption
+What is the purpose of a CloudFront Origin Access Identity (OAI)?,"It's a special CloudFront user that restricts access to an S3 bucket, ensuring content can only be accessed through CloudFront and not directly via the S3 URL."
+What is the default Time to Live (TTL) for objects cached in a CloudFront edge location?,One day (24 hours).
+"When using AWS Certificate Manager (ACM) with a CloudFront distribution, in which region must the SSL/TLS certificate be created?",The certificate must be created in the us-east-1 (N. Virginia) region.
+What AWS service allows you to run standard SQL queries directly on data stored in Amazon S3 without provisioning any servers?,Amazon Athena.
+What is a key characteristic of a serverless architecture on AWS?,"AWS manages capacity provisioning, patching, auto-scaling, and high availability, allowing developers to focus on the application."
+How is AWS Lambda pricing calculated?,"It is based on the number of requests, the duration of execution (in milliseconds), and the amount of memory allocated."
+"Which API Gateway type supports real-time, two-way, stateful communication, suitable for applications like chat apps?",WebSocket API.
+"If you exceed the Lambda concurrent executions limit for a region, what HTTP status code will be returned?",429 Too Many Requests.
+"In Lambda versioning, what does the alias `$LATEST` always refer to?","The most recent, unpublished version of the function code."
+What is the primary function of AWS Step Functions?,"To orchestrate serverless applications with a visual interface, managing the logic, sequencing, error handling, and retries of the workflow."
+Compare Standard and Express workflows in AWS Step Functions.,"Standard workflows are long-running (up to 1 year) and ensure tasks are executed once, while Express workflows are for high-volume, short-duration workloads and may run tasks more than once."
+What is the purpose of the `/tmp` directory in a Lambda execution environment?,"It provides temporary, ephemeral storage (512MB - 5GB) that acts like a cache file system for the duration of a single invocation."
+What is the purpose of Lambda Layers?,"To manage and share function dependencies, such as libraries and custom runtimes, as a separate zip file archive referenced by the function."
+"By default, how many times does Lambda automatically retry a failed asynchronous invocation?",Lambda automatically makes two retries after the initial failed invocation.
+"In AWS Lambda, what feature allows you to save failed asynchronous invocations for further processing in a service like SQS or SNS?",A Dead-Letter Queue (DLQ).
+What is the purpose of mock endpoints in API Gateway?,They allow developers to test and debug software by simulating the responses and behaviors expected from an API without needing a live backend.
+"In API Gateway, what is used to create logical references to lifecycle states of an API, such as 'dev', 'test', or 'prod'?",Stages.
+What service helps developers analyze and debug distributed applications by providing a visual map of the application's components and tracking latency and errors?,AWS X-Ray.
+"To use AWS X-Ray with an EC2 instance, what two components must be installed and configured on the instance?",The X-Ray agent (daemon) and the X-Ray SDK for the application's programming language.
+What is the default read consistency model for DynamoDB?,"Eventually Consistent Reads, where all copies of data are consistent within a second."
+What is the difference between a partition key and a composite key in DynamoDB?,"A partition key is a single unique attribute, while a composite key is a combination of a partition key and a sort key for a unique item."
+How does a Global Secondary Index (GSI) differ from a Local Secondary Index (LSI) in DynamoDB?,"A GSI can have a different partition and sort key from the table and can be created anytime, while an LSI must share the same partition key as the table and must be created at table creation."
+Which DynamoDB operation is more efficient for finding items: Query or Scan?,"A Query is more efficient as it finds items based on a primary key, whereas a Scan examines every item in the table."
+One Write Capacity Unit (WCU) in DynamoDB represents one write per second for an item up to _____ in size.,1 KB
+One Read Capacity Unit (RCU) in DynamoDB represents one strongly consistent read per second for an item up to _____ in size.,4 KB
+"What service provides a fully managed, in-memory cache for DynamoDB to improve read performance for read-heavy workloads?",DynamoDB Accelerator (DAX).
+What is the purpose of DynamoDB Streams?,"To capture a time-ordered sequence of item-level modifications in a DynamoDB table, which can be used for auditing or triggering events."
+What is the strategy of using progressively longer waits between consecutive retries for a failed API request called?,Exponential Backoff.
+"In AWS KMS, what is the practice of encrypting a data key with another key (a CMK) called?",Envelope Encryption.
+What is the difference between an AWS-Managed CMK and a Customer-Managed CMK in KMS?,"An AWS-Managed CMK is created and managed by AWS for specific services, whereas a Customer-Managed CMK is created, owned, and managed by the customer."
+"In KMS, the `aws kms enable-key-rotation` CLI command enables automatic rotation on what time basis?",A 365-day basis.
+What is the function of the Visibility Timeout in Amazon SQS?,"It is the amount of time that a message is hidden from other consumers after a consumer picks it up from the queue, preventing duplicate processing."
+Differentiate between Standard and FIFO queues in SQS.,"Standard queues offer at-least-once delivery and best-effort ordering, while FIFO queues guarantee exactly-once processing and preserve the order of messages."
+What is the difference between short polling and long polling in SQS?,"Short polling returns a response immediately (even if the queue is empty), while long polling waits until a message arrives in the queue before sending a response."
+How can you handle messages larger than 256KB in SQS?,Use the SQS Extended Client Library to automatically store the large message payload in S3 and send a reference to that message in SQS.
+Amazon SNS (Simple Notification Service) is based on the _____ messaging model.,Publish-Subscribe (Pub-Sub)
+What is the primary function of AWS Kinesis?,"To collect, process, and analyze streaming data in real time."
+Which AWS service allows you to deploy and scale web applications where you provide the code and the service handles the underlying infrastructure?,AWS Elastic Beanstalk.
+"In Elastic Beanstalk, which deployment strategy deploys the new version to a fresh group of instances before terminating the old ones?",Immutable deployment.
+What is Canary Testing in the context of Elastic Beanstalk deployments?,A traffic-splitting deployment where a small percentage of traffic is directed to the new application version for evaluation before a full rollout.
+What is the recommended practice for deploying an RDS database for a production Elastic Beanstalk environment?,Deploy the RDS instance outside of the Beanstalk environment to prevent it from being terminated if the environment is terminated.
+"Which AWS service is a managed source control service based on Git, similar to GitHub?",AWS CodeCommit.
+"Which AWS service compiles source code, runs tests, and produces software packages that are ready to deploy?",AWS CodeBuild.
+"In AWS CodeDeploy, what is the purpose of the `AppSpec.yml` file?","It defines the parameters for a deployment, such as file locations and lifecycle event hooks (scripts to run at specific points)."
+"Which AWS service orchestrates an end-to-end software release workflow, integrating services like CodeCommit, CodeBuild, and CodeDeploy?",AWS CodePipeline.
+What is AWS CodeArtifact?,"A managed artifact repository service for storing, publishing, and sharing software packages used in development."
+"What AWS service allows you to manage, configure, and provision your AWS infrastructure as code using YAML or JSON templates?",AWS CloudFormation.
+What is the AWS Serverless Application Model (SAM)?,An open-source framework and extension for CloudFormation that simplifies defining and deploying serverless applications.
+What is the AWS Cloud Development Kit (CDK)?,"An open-source framework that allows you to define and deploy cloud resources using familiar programming languages, which are then synthesized into CloudFormation templates."
+"What service acts as an identity broker, providing web identity federation with sign-up and sign-in functionality for web and mobile apps?",Amazon Cognito.
+"In Amazon Cognito, _____ are user directories for sign-up/sign-in, while _____ provide temporary AWS credentials for accessing services.",User Pools; Identity Pools
+What is the difference between a managed policy and an inline policy in IAM?,"A managed policy is a standalone, reusable policy that can be attached to multiple entities, while an inline policy is embedded directly into a single user, group, or role and cannot be reused."
+"To allow users authenticated by a web ID provider (like Google or Facebook) to get temporary credentials, which STS API call is used?",AssumeRoleWithWebIdentity.
+"To monitor OS-level metrics like memory usage and disk space on an EC2 instance, what must be installed?",The CloudWatch Agent.
+"Which AWS service records user activity and API calls for governance, compliance, and auditing?",AWS CloudTrail.
+What is the purpose of AWS AppSync?,"It is a managed service that uses GraphQL to create a flexible API for securely accessing, manipulating, and combining data from one or more data sources."
+What is the lazy loading caching strategy?,A strategy where a record is loaded from the database into the cache only when it is first requested by the application.
+"The AWS Certified Developer - Associate exam has a total of 65 questions, but only _____ questions are scored.",50
+What is the minimum passing score for the AWS Certified Developer - Associate (DVA-C02) exam?,720 out of 1000.
+Which content domain has the highest weighting (32%) on the DVA-C02 exam?,Content Domain 1: Development with AWS Services.
+"According to the exam guide, what is one example of a task that is out of scope for the target candidate?","Designing architectures, designing CI/CD pipelines, administering IAM users, administering servers, or designing AWS networking infrastructure."
