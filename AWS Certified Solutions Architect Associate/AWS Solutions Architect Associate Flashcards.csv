@@ -1,0 +1,67 @@
+"In the context of billing tools, which feature provides a summary of all cost and usage information?",Reports
+Which billing tool function provides notifications when cost or usage exceeds defined limits?,Notifications
+What is the purpose of the 'Current State' billing tool configuration?,To provide a dashboard showing current levels of cost and usage.
+Which billing tool capability shows the variability in cost and usage over a required period of time?,Trending
+What is the function of 'Forecasts' within AWS billing and cost optimization?,To provide the capability to show estimated future costs.
+Which cost management feature tracks current cost and usage against configured goals or targets?,Tracking
+What capability allows team members to perform custom analysis down to hourly granularity?,Analysis
+The AWS Solutions Architect Associate certification validates a candidate's ability to design solutions based on the _____.,AWS Well-Architected Framework
+What is the recommended minimum length of hands-on experience for a target candidate of this exam?,At least 1 year
+Which exam domain carries the highest weight at 30%?,Design Secure Architectures
+What percentage of the exam is dedicated to 'Design Resilient Architectures'?,26%
+What percentage of the exam is dedicated to 'Design High-Performing Architectures'?,24%
+What percentage of the exam is dedicated to 'Design Cost-Optimized Architectures'?,20%
+List the six pillars of the AWS Well-Architected Framework.,"Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, and Sustainability."
+Which Well-Architected pillar focuses on running workloads effectively and continuously improving processes?,Operational Excellence
+Which Well-Architected pillar focuses on meeting system requirements while demand changes and technologies evolve?,Performance Efficiency
+"Which Well-Architected pillar focuses on protecting data, systems, and assets through cloud technologies?",Security
+Which Well-Architected pillar focuses on a workload's ability to perform its intended function correctly and consistently?,Reliability
+Which Well-Architected pillar focuses on delivering business value at the lowest price point?,Cost Optimization
+Which Well-Architected pillar focuses on environmental impacts and energy consumption?,Sustainability
+Operational Excellence Principle: Organize teams around _____.,Business outcomes
+"In Operational Excellence, why should a team make frequent, small, reversible changes?",To deliver business value while maintaining the ability to quickly recover from failure.
+What is the purpose of 'observability' in the Operational Excellence pillar?,To gain actionable insights into workload operations.
+Performance Efficiency Principle: What does it mean to 'democratize advanced technologies'?,Making complex technologies easier to consume by providing them as a service.
+Performance Efficiency Principle: What is 'mechanical sympathy'?,Understanding how your tools and systems work to better optimize their use.
+Security Principle: Aim to eliminate reliance on _____ static credentials.,Long-term
+Reliability Principle: Why should an architect 'stop guessing capacity'?,To use automation to scale resources up or down based on actual demand.
+Cost Optimization Principle: What is the benefit of adopting a 'consumption model'?,You pay only for the computing resources you require.
+Cost Optimization Principle: What is meant by 'undifferentiated heavy lifting'?,Tasks like managing servers or data centers that don't directly contribute to business competitive advantage.
+Sustainability Principle: Why is it important to maximize utilization?,To ensure that energy consumed by hardware is used as efficiently as possible.
+Define the Principle of Least Privilege.,Granting only the minimum permissions required for a task and enforcing separation of duties.
+Concept: Role-Based Access Control (RBAC),"Definition: Access based on identity, such as IAM users, groups, or federation."
+Concept: Attribute-Based Access Control (ABAC),"Definition: Access based on properties or tags, using policy conditions to evaluate principal and resource tags."
+"By what protocol are all AWS services driven via the Console, CLI, or SDK?",HTTP or HTTPS
+What is the primary difference between identity-based policies and resource-based policies?,"Identity-based policies are attached to IAM principals, while resource-based policies are attached to the resources themselves."
+What is the function of a Permissions Boundary?,To define the maximum permissions that an identity-based policy can grant to a principal.
+Which policy type is used specifically in AWS Organizations to manage account-level permissions?,Service Control Policies (SCPs)
+Which specific resource is the only one to support Access Control Lists (ACLs) that do not use JSON?,S3 buckets
+"In the AWS policy evaluation logic, what is the 'default' decision if no explicit allow is found?",Implicit Deny
+"In AWS policy evaluation, what happens if an explicit deny is encountered at any step?","The final decision is an explicit deny, regardless of any allows."
+What is the role of a Session Policy?,To limit permissions while assuming temporary credentials.
+What AWS service provides central billing and multiple account management?,AWS Organizations
+What is an Organizational Unit (OU) in AWS Organizations?,A container for accounts used to organize them for policy management.
+AWS Control Tower is built on top of which other AWS service?,AWS Organizations
+What are 'Guardrails' in AWS Control Tower?,"Pre-packaged governance rules for security, compliance, and operations."
+"In a Control Tower Landing Zone, which two OUs are created by default?",Security and Sandbox
+Which two accounts are typically found in the Security OU of a Control Tower setup?,Audit and Log Archive accounts
+What is the 'Account Factory' in AWS Control Tower?,A tool that automates the provisioning of new accounts with standardized configurations.
+What type of federation is typically used for external providers like Okta or Azure Entra ID with single AWS accounts?,SAML Federation
+Which federation protocol is commonly used for social identity providers like Facebook or Google?,OpenID Connect (OIDC)
+What AWS service manages SSO access to multiple AWS accounts and business applications?,IAM Identity Center
+Which permission implementation best minimizes the risk of partners accessing each other's data in isolated S3 buckets?,S3 bucket policy applied to each bucket with specific cross-account permissions.
+Why are IAM user credentials less secure for partner access than S3 bucket policies?,They allow the possibility of extra permissions being associated with the user beyond the intended bucket.
+"Security Principle: Monitor, alert, and audit actions in _____ time.",Real
+Which service acts as a threat detection service that continuously monitors for malicious activity?,Amazon GuardDuty
+What logs does Amazon GuardDuty ingest to generate findings?,"AWS CloudTrail, VPC Flow logs, and VPC DNS logs."
+What is the primary function of AWS CloudTrail?,To record and audit all API actions and changes in the AWS environment.
+Which service provides a consolidated view of security findings from multiple AWS services?,AWS Security Hub
+What service should be used to continuously monitor and evaluate configurations against desired standards?,AWS Config
+Which service is used for vulnerability management of EC2 instances and container images?,Amazon Inspector
+What is the purpose of Amazon Macie?,To use machine learning and pattern matching to discover and protect sensitive data in S3.
+Which service centralizes management of firewall rules across an AWS Organization?,AWS Firewall Manager
+What service is used to conduct deep security investigations into findings from GuardDuty or Security Hub?,Amazon Detective
+Which service provides real-time notifications for security events via email or mobile?,Amazon SNS
+What is the role of Amazon EventBridge in security remediation?,To trigger automated responses (like Lambda functions) based on state changes or security events.
+Which service can be used to automatically remediate non-compliant resources identified by AWS Config?,AWS Systems Manager
+How does AWS Lambda contribute to security remediation?,By running code in response to events to automatically fix security issues or configurations.
